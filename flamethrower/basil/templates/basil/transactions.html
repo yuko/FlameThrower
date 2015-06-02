@@ -1,0 +1,24 @@
+<script id="transactions-tmpl" type="text/template">
+    <div class="pure-g">
+        <div class="pure-u-4-24"><p>Date</p></div>
+        <div class="pure-u-6-24"><p>Description</p></div>
+        <div class="pure-u-6-24"><p>Place</p></div>
+        <div class="pure-u-3-24"><p>Amount</p></div>
+        <div class="pure-u-3-24"><p>Account</p></div>
+    </div>
+
+    {% for key, value in transactions.items %}
+        <div class="category">
+            <div class="category-header">{{ key }}</div>
+            {% for t in value %}
+                <div class="pure-g">
+                    <div class="pure-u-4-24">{{ t.date }}</div>
+                    <div class="pure-u-6-24">{{ t.description }}</div>
+                    <div class="pure-u-6-24">{{ t.place.name }}</div>
+                    <div class="pure-u-3-24">{{ t.amount }}</div>
+                    <div class="pure-u-3-24">{{ t.account.name }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</script>

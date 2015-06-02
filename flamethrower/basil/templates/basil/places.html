@@ -1,0 +1,15 @@
+<script id="places-tmpl" type="text/template">
+    <form id="addPlace">
+        <input type="text" id="name">
+        <input type="submit" id="add" value="add">
+    </form>
+
+    <% collection.forEach(function(place) { %>
+        <div class="place">
+            <a class="delete" data-id="<%= place.get('id') %>">
+                <i class="fa fa-times deleteIcon"></i>
+            </a>
+            <input type="text" class="placeInput" value="<%= place.get('name') %>">
+        </div>
+    <% });%>
+</script>

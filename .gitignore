@@ -1,0 +1,6 @@
+venv
+.DS_Store
+*.pyc
+*.swp
+db.sqlite3
+flamethrower/notes.md

@@ -1,0 +1,36 @@
+#container {
+  margin: 20px;
+}
+
+.category {
+  margin-bottom: 10px;
+}
+
+.category-header {
+  color: #ddd;
+}
+
+
+
+/*** places  ***/
+.deleteIcon {
+  color: #ddd;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover i.deleteIcon {
+  color: #2ba6cb;
+}
+
+.placeInput {
+  margin: 2px 0 2px 10px;
+  border: none;
+}
+

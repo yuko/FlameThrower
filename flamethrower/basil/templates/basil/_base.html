@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static "css/main.css" %}">
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div id="container">
+{% block content %}
+{% endblock %}
+</div>
+
+{% include 'basil/transactions.html' %}
+{% include 'basil/places.html' %}
+
+<script src="{% static "vendor/jquery-2.1.4.js" %}"></script>
+<script src="{% static "vendor/underscore.js" %}"></script>
+<script src="{% static "vendor/backbone.js" %}"></script>
+<script src="{% static "js/scarlett.js" %}"></script>
+<script src="{% static "js/views/home_view.js" %}"></script>
+<script src="{% static "js/views/places_view.js" %}"></script>
+<script src="{% static "js/models/place_model.js" %}"></script>
+<script src="{% static "js/models/place_collection.js" %}"></script>
+
+<script>
+    $(function() {
+        Scarlett.initializeAjax("{{ csrf_token }}");
+        window.app = new Scarlett.Router(
+            new Scarlett.PlaceCollection(JSON.parse("{{ places|escapejs|safe }}"))
+            //new StoryMaker.StoryCollection(JSON.parse("{{ stories|escapejs|safe }}")),
+            //new StoryMaker.PageCollection(JSON.parse("{{ pages|escapejs|safe }}"))
+        );
+        Backbone.history.start();
+    });
+</script>
+</body>
+</html>
