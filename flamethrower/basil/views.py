@@ -16,19 +16,17 @@ def index(request):
 
     data = {
         'transactions': transactions,
-        'places': _get_json_for_class(PlacesView), #Payee.objects.all().order_by('name'),
+        'places': _get_json_for_class(PlacesView),
     }
     return render(request, 'basil/_base.html', data)
-
 
 def _get_json_for_class(cls):
     items = cls().retrieve()
     return json.dumps(items).encode('utf-8')
 
-
 class RESTfulView(View):
     def get(self, request, *args, **kwargs):
-        data = self.retrive()
+        data = self.retrieve()
         return HttpResponse(json.dumps(data), 
             content_type="application/json")
 

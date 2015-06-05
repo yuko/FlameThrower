@@ -2,8 +2,8 @@ window.Scarlett = {};
 
 Scarlett.Router = Backbone.Router.extend({
     routes: {
-        '': 'visitHome',
         ':places(/)': 'visitPlaces',
+        '': 'visitHome'
     },
 
     initialize: function(places) {
@@ -21,21 +21,9 @@ Scarlett.Router = Backbone.Router.extend({
     },
 
     setCurrentView: function(view) {
-        // for refreshing after new model is added to collection. not working!
-        if(view.collection) {
-            this.listenToOnce(view.colleciton, 'createdNew', function(name){
-                //this.navigate(name + '/' + token, { trigger: true });
-            }.bind(this));
-        }
-
-
-
         var $content = $("#container");
         $content.empty();
         $content.html(view.render().el);
-
-
-
     }
 });
 

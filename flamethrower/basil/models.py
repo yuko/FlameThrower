@@ -1,11 +1,8 @@
 from django.db import models
 import datetime
 
-# add underscore
 class Account_Type(models.Model):
     account_type = models.CharField(max_length=200)
-
-    # TODO - add def __unicode__(self)?
 
 
 class Account(models.Model):
