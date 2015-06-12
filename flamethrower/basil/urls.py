@@ -6,5 +6,4 @@ urlpatterns = [
     ## need the (\d*) for delete
     url(r'^places/(\d*)$', PlacesView.as_view()),
     url(r'^$', views.index, name='index'),
-    #url(r'^$', PlacesView.as_view()),
 ]
